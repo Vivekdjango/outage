@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Duo submit</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+
+
+$(document).ready(function() {
+    $("#subbut").click(function() {
+        $.post($("#firstform").attr("action"), $("#firstform").serialize(),
+          function(data) {
+            $("#msg").append(data);
+            $.post($("#secondform").attr("action"), $("#secondform").serialize(),
+              function(data) {
+                $("#msg").append(data);
+              });
+          });
+      });
+  });
+
+</script>
+
+<form id="firstform" action="/cgi-bin/outage/update.py" method="post">
+<input type="text" name="file" value=""/>
+</form>
+<form id="secondform" action="/cgi-bin/outage/mail_update.py" method="post">
+<input type="text" name="file" value=""/>
+</form>
+<button id="subbut">Submit both forms</button>
+<div id="msg"></div>
+</body>

@@ -1,0 +1,78 @@
+#!/usr/bin/python
+
+print "Content-Type: text/html"
+print ""
+
+import cgi, cgitb
+import re
+form=cgi.FieldStorage()
+st=form.getvalue('status')
+sub=form.getvalue('subject')
+com=form.getvalue('comment')
+
+
+check=re.search("Communication(.*)",sub)
+new=check.group()
+i=new.split()
+x=i.remove('Communication')
+
+j=' '.join(i).replace(" ","")
+
+
+html_file=j+'.html'
+
+print html_file
+
+s=open("/var/www/html/outage/%s"%(html_file)).read()
+z=re.search('style(.*)',s)
+x=z.group()
+
+
+if st=="amber" and x=="style='color:red'><b><u>Status:</u></b>RED</p>":
+	s=s.replace(x,"style='color:orange'><b><u>Status:</u></b>AMBER</p>")
+	f=open("/var/www/html/outage/%s"%(html_file),'w')
+	f.write(s)
+	f.close()
+elif st=="amber" and x=="style='color:green'><b><u>Status:</u></b>GREEN</p>":
+        s=s.replace(x,"style='color:orange'><b><u>Status:</u></b>AMBER</p>")
+        f=open("/var/www/html/outage/%s"%(html_file),'w')
+        f.write(s)
+        f.close()
+elif st=="resolved" and x=="style='color:red'><b><u>Status:</u></b>RED</p>":
+	s=s.replace(x,"style='color:green'><b><u>Status:</u></b>GREEN</p>")
+        f=open("/var/www/html/outage/%s"%(html_file),'w')
+        f.write(s)
+        f.close()
+
+elif st=="resolved" and x=="style='color:orange'><b><u>Status:</u></b>AMBER</p>":
+	s=s.replace(x,"style='color:green'><b><u>Status:</u></b>GREEN</p>")
+        f=open("/var/www/html/outage/%s"%(html_file),'w')
+        f.write(s)
+        f.close()
+
+elif st=="red" and x=="style='color:orange'><b><u>Status:</u></b>AMBER</p>":
+	s=s.replace(x,"style='color:red'><b><u>Status:</u></b>RED</p>")
+        f=open("/var/www/html/outage/%s"%(html_file),'w')
+        f.write(s)
+        f.close()
+elif st=="red" and x=="style='color:green'><b><u>Status:</u></b>GREEN</p>":
+	s=s.replace(x,"style='color:red'><b><u>Status:</u></b>RED</p>")
+        f=open("/var/www/html/outage/%s"%(html_file),'w')
+        f.write(s)
+        f.close()
+
+
+with open("/var/www/html/outage/%s"%html_file, "r") as f:
+        lines = f.readlines()
+
+for index, line in enumerate(lines):
+    if line.startswith("ETA \n"):
+        break
+lines.insert(index, "<br><ul><li>{0}</li></ul>".format(com))
+
+with open("/var/www/html/outage/%s"%html_file, "a") as f:
+	f.writelines(lines)
+	f.close()
+
+
+

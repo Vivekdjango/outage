@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Update Incident</title>
+
+	<link rel="stylesheet" href="update.css">
+<!--
+    <script>
+        var CRLF   = 10;
+        var BULLET = String.fromCharCode(45);
+
+        function Init() {
+            if (txt.addEventListener) txt.addEventListener("input", OnInput, false);
+        }
+
+        function OnInput(event) {
+            char = event.target.value.substr(-1).charCodeAt(0);
+            nowLen = txt.value.length;
+
+            if (nowLen > prevLen.value) {
+                if (char == CRLF) txt.value = txt.value + BULLET + " ";
+                if (nowLen == 1) txt.value = BULLET + " " + txt.value;
+            }
+            prevLen.value = nowLen;
+        }
+    </script>
+
+<body onload="Init ();">
+-->
+<body>
+
+
+    <div class="main-content">
+
+        <!-- You only need this form and the form-basic.css -->
+
+        <form class="form-basic" method="post" action="/cgi-bin/outage/edit.py" style="margin-top:6%; margin-bottom:6%;">
+
+            <div class="form-title-row">
+                <h1>Update Incident</h1>
+            </div>
+
+
+
+            <div class="form-row">
+                <label>
+                    <span>Status:</span>
+                    <select name="status" style="width:100px;">
+                        <option value="red">RED</option>
+                        <option value="amber">AMBER</option>
+                        <option value="resolved">Resolved</option>
+
+                    </select>
+                </label>
+            </div>
+
+
+
+            <div class="form-row">
+                <label>
+                    <span>Subject:</span>
+                    <textarea name="subject" style="margin-left:5%;width=70%" required="required"></textarea>
+    
+            </label>
+<br>
+<label style="
+    margin-left: 5%;
+    font-weight: 100;
+    font-size: 12px;
+">   Format: [Update(numb): Status Priority: ISSUE]</label>
+            </div>
+
+
+
+	  <div class="form-row">
+                <label>
+                    <span>Next Update:</span>
+                    <input type="text" name="update">
+                </label>
+            </div>
+
+
+
+
+            <div class="form-row">
+<!--                <label>
+                    <span>Description</span>
+                    <textarea name="desc" style="height:200px; margin-left:3%;"></textarea>
+                </label>
+
+-->
+<label>
+                    <span>Comment:</span>
+                </label>
+<!--
+    <textarea id="txt" oninput="OnInput(this, 'prevLen');" rows="15" cols="40" style="margin-left:5%;height:200px;"></textarea>
+    <input type="hidden" id="prevLen" value="0" name="comment"/>
+-->
+<textarea class="form-row" name="comment" oninput="OnInput(this, 'prevLen');" style="
+    width: 90%;
+    height: 300px;
+    margin-left: 5%;
+">
+</textarea> 
+            </div>
+
+
+            <div class="form-row">
+
+<input type="submit" value="view" name="view" />
+<input type="submit" value="send" name="send" />
+
+<!---
+<button style="margin-left:50%"><a href="#" >Create</a></button>
+-->     
+  <!--         <button type="submit" onclick="myFunction()";>Save</button>
+-->
+        </div>
+
+        </form>
+<!--   <script>
+	function myFunction() {
+	alert("Outage Send..");}
+   </script>
+	
+-->
+    </div>
+
+</body>
+
+</html>

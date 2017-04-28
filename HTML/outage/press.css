@@ -1,0 +1,79 @@
+/* Post at: https://superdevresources.com/3d-css-button/ */
+body {
+  text-align: center;
+  color:#09BDEA;
+  background-color: #FFFFFF;
+  font-family: "Cabin";
+  margin-top: 20px;
+  font-weight:900;
+  font-size:26px
+}
+
+.button-3d {
+  position:relative;
+  width: auto;
+  display:inline-block;
+  color:#ecf0f1;
+  text-decoration:none;
+  border-radius:10px;
+  border:solid 1px #f39c12;
+  background:#F44336;
+  text-align:center;
+  padding:50px;
+  margin: 5%;
+  
+  -webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+	
+  -webkit-box-shadow: 0px 6px 0px #d35400;
+  -moz-box-shadow: 0px 6px 0px #d35400;
+  box-shadow: 5px 6px 10px #d35400;
+}
+
+.button-3d:active{
+    -webkit-box-shadow: 0px 2px 0px #d35400;
+    -moz-box-shadow: 0px 2px 0px #d35400;
+    box-shadow: 0px 2px 0px #d35400;
+    position:relative;
+    top:10px;
+}
+
+.button-3d1 {
+  position:relative;
+  width: auto;
+  display:inline-block;
+  color:#ecf0f1;
+  text-decoration:none;
+  border-radius:10px;
+  border:solid 1px #0C0C0C;
+  background:#463F3F;
+  text-align:center;
+  padding:50px;
+  margin: 5%;
+
+  -webkit-transition: all 0.1s;
+        -moz-transition: all 0.1s;
+        transition: all 0.1s;
+
+  -webkit-box-shadow: 0px 6px 0px #d35400;
+  -moz-box-shadow: 0px 6px 0px #d35400;
+  box-shadow: 5px 6px 10px #292522;
+}
+
+.button-3d1:active{
+    -webkit-box-shadow: 0px 2px 0px #d35400;
+    -moz-box-shadow: 0px 2px 0px #d35400;
+    box-shadow: 0px 2px 0px #292522;
+    position:relative;
+    top:10px;
+}
+
+
+
+
+
+
+
+
+

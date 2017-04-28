@@ -1,0 +1,15 @@
+<html>
+<center>
+<form id="firstform" action="/cgi-bin/outage/update.py" method="get">
+</form>
+<form id="secondform" action="/cgi-bin/outage/mail_update.py" method="post"></form>
+Entry: <input type="text" name="file"><br />
+<button  style="width:100px;height:30px;" onclick="submitForms()"></button>
+<script language="javascript">
+function() submitForms{
+  document.getElementById("firstform").submit();
+  document.getElementById("secondform").submit();
+ }
+</script>
+</center>
+</html>

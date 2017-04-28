@@ -1,0 +1,42 @@
+(dp0
+S'Jira'
+p1
+S'\n<a href=https://jira.corp.inmobi.com:8443/browse/NOC-1234>NOC-1234</a>\n'
+p2
+sS'Summary'
+p3
+S'<ul><li>Testing </li></ul>'
+p4
+sS'Slack'
+p5
+S'\n<a href=https://inmobi.slack.com/messages/noc-1234>noc-1234</a>\n'
+p6
+sS'Time'
+p7
+S'13:52 PM'
+p8
+sS'Date'
+p9
+S'14-November-2016'
+p10
+sS'Buisness Impacted'
+p11
+S'Test'
+p12
+sS'Downtime'
+p13
+S"\n<p style='color:red'><b><u>Status:</u></b>RED</p>\n"
+p14
+sS'Issue'
+p15
+S'30'
+p16
+sS'Region Impacted'
+p17
+S'Test'
+p18
+sS'Application Impacted'
+p19
+S'Test'
+p20
+s.
